@@ -10,7 +10,7 @@ public class RateLimitDecision
     /// <summary>
     /// How many requests remain in the current window.
     /// </summary>
-    public int Remaining { get; set; }
+    public long Remaining { get; set; }
 
     /// <summary>
     /// When the current window resets (UTC).
@@ -27,7 +27,7 @@ public class RateLimitDecision
     /// </summary>
     public string RuleName { get; set; } = string.Empty;
 
-    public static RateLimitDecision Allow(int remaining, DateTimeOffset resetAt, string ruleName) =>
+    public static RateLimitDecision Allow(long remaining, DateTimeOffset resetAt, string ruleName) =>
         new()
         {
             Allowed = true,
