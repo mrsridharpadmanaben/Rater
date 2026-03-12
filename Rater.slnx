@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Rater.API/Rater.API.csproj" />
+    <Project Path="src/Rater.Core/Rater.Core.csproj" />
+    <Project Path="src/Rater.Middleware/Rater.Middleware.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Rater.API.Tests/Rater.API.Tests.csproj" />
+    <Project Path="tests/Rater.Core.Tests/Rater.Core.Tests.csproj" />
+  </Folder>
+</Solution>
