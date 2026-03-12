@@ -28,9 +28,9 @@ public class RateLimitRule
     /// </summary>
     public int WindowSeconds { get; set; }
 
-    /// <summary>
+    /// <summary>   
     /// How to build the storage key.
-    /// "IpAddress - 0" | "ClientId - 1" | "ApiKey - 2" | "Composite - 3"
+    /// "IpAddress" | "ClientId" | "ApiKey" | "Composite"
     /// </summary>
     public RaterKeyStrategy KeyStrategy { get; set; } = RaterKeyStrategy.ClientId;
 }
