@@ -26,28 +26,6 @@
 └─────────────────────────────────────────────────────────────┘
 ```
 
-
-// Program.cs
-
-builder.Services.AddRateLimiter();   // extension method
-
-app.UseRateLimiter();                // middleware
-
-Every request to **their app** passes through your middleware automatically. No extra HTTP hop. The rate limiter lives **inside their process**.
-
-Client → Their App (middleware intercepts here) → Their Controller
-
-### Entry Point A — Standalone API
-
-Someone deploys your API as a **separate service** and calls it from their gateway/service:
-
-Client → Their Gateway → POST /check to RateLimiter.Api → allow/deny → Their Service
-
-
-Extra network hop but language-agnostic. A Python service, a Go service, anything can call it.
-
----
-
 ## Project Structure
 
 ```
@@ -138,7 +116,7 @@ RateLimiter/
 
 ---
 
-## Project Dependencies (important)
+## Project Dependencies
 ```
 RateLimiter.Core          ← no dependencies on other projects
        ▲
@@ -162,7 +140,7 @@ RateLimiterMiddleware
     │  extracts IP, headers, path, method
     │  builds RateLimitRequest (Core contract)
     ▼
-RateLimiterService.CheckAsync()    ← pure Core logic
+RateLimiterService.CheckAsync()    ← Core logic
     │
     ▼
 RateLimitDecision
@@ -265,7 +243,7 @@ SlidingWindow:
 
 ## The Full Flow
 
-Let's trace one request end-to-end through the code we've built:
+Trace one request end-to-end through the code:
 ```
 POST /check
 {
