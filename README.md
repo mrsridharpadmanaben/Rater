@@ -138,7 +138,7 @@ RateLimiter/
 
 ---
 
-## Project Dependencies (important)
+## Project Dependencies
 ```
 RateLimiter.Core          ← no dependencies on other projects
        ▲
@@ -162,7 +162,7 @@ RateLimiterMiddleware
     │  extracts IP, headers, path, method
     │  builds RateLimitRequest (Core contract)
     ▼
-RateLimiterService.CheckAsync()    ← pure Core logic
+RateLimiterService.CheckAsync()    ← Core logic
     │
     ▼
 RateLimitDecision
@@ -265,7 +265,7 @@ SlidingWindow:
 
 ## The Full Flow
 
-Let's trace one request end-to-end through the code we've built:
+Trace one request end-to-end through the code:
 ```
 POST /check
 {
